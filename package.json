@@ -2,7 +2,7 @@
   "name": "zenc",
   "displayName": "Zen C",
   "description": "Language support for Zen C",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "z-libs",
   "repository": {
     "type": "git",
