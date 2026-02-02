@@ -1,30 +1,55 @@
-# Zen C VSCode Extension
+# Zen C for VS Code
 
-## Running Locally
+This extension provides language support for the [Zen C](https://github.com/z-libs/Zen-C) programming language.
 
-1.  **Prerequisites**: Ensure you have [Node.js](https://nodejs.org/) and `npm` installed.
-2.  **Setup**:
+## Features
+
+-   **Syntax Highlighting**: Colorization for keywords, types, functions, strings, and comments.
+-   **IntelliSense**: Code completion for local variables, function arguments, and struct fields.
+-   **Hover**: Documentation and type information on hover.
+-   **Go to Definition**: Navigate to symbol definitions.
+-   **Diagnostics**: Real-time error reporting and type checking.
+
+## Requirements
+
+You must have the Zen C compiler (`zc`) installed and available in your system path.
+
+## Installation
+
+### From Marketplace
+Install via VS Code Marketplace: [Zen C](https://marketplace.visualstudio.com/items?itemName=z-libs.zenc)
+
+### From Source
+1.  Clone the repository:
     ```bash
-    cd editors/vscode
+    git clone https://github.com/z-libs/zenc-vscode.git
+    cd zenc-vscode
+    ```
+2.  Install dependencies:
+    ```bash
     npm install
     ```
-3.  **Run**:
-    -   Open the `editors/vscode` folder in VSCode (`code .`).
-    -   Press **F5** to start debugging.
-    -   This will open a new "Extension Development Host" window with the extension active.
+3.  Open in VS Code:
+    ```bash
+    code .
+    ```
+4.  Press **F5** to build and launch the extension in debug mode.
 
 ## Configuration
 
--   `zenc.serverPath`: Path to your `zc` compiler.
-    -   By default, it assumes `zc` is in your `PATH`.
-        - If you are running from the source build, set this to the absolute path of your `zc` binary (e.g., `/home/zuhaitz/Documents/Code/Zen-C/zc`).
+This extension contributes the following settings:
+
+*   `zenc.serverPath`: Absolute path to the `zc` executable. Default: `zc` (assumes it is in your PATH).
 
 ## Publishing
 
-To publish to the VS Code Marketplace:
+To publish a new version:
 
-1.  **Install vsce**: `npm install -g vsce`
-2.  **Create Publisher**: Go to [marketplace.visualstudio.com](https://marketplace.visualstudio.com/) and create a publisher ID.
-3.  **Login**: `vsce login <publisher id>`
-4.  **Package**: `vsce package` (creates a `.vsix` file for manual install)
-5.  **Publish**: `vsce publish`
+1.  Update version in `package.json`.
+2.  Install `vsce`: `npm install -g vsce`
+3.  Package: `vsce package`
+4.  Publish: `vsce publish`
+
+## License
+
+MIT
