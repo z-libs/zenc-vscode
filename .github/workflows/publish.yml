@@ -1,0 +1,41 @@
+name: Publish Extension
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'package.json'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: 'package-lock.json'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Compile Extension
+        run: npm run compile
+
+      - name: Package Extension
+        run: npx vsce package -o extension.vsix
+
+      - name: Publish to Open VSX Registry
+        uses: HaaLeo/publish-vscode-extension@v1
+        with:
+          pat: ${{ secrets.OPEN_VSX_TOKEN }}
+          extensionFile: extension.vsix
+
+      # Optional: You can keep this here but it will fail until you add the secret
+      # Added continue-on-error to prevent blocking the whole workflow
+      - name: Publish to Marketplace
+        run: npx vsce publish -p ${{ secrets.VSCE_PAT }}
+        continue-on-error: true

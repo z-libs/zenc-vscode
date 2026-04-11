@@ -36,7 +36,7 @@
             "patterns": [
                 {
                     "name": "keyword.control.zenc",
-                    "match": "\\b(if|else|while|for|return|break|continue|do|goto|switch|case|default|match|try|catch|guard|unless|async|await|launch|defer|asm|unsafe)\\b"
+                    "match": "\\b(if|else|while|for|return|break|continue|do|goto|switch|case|default|match|try|catch|guard|unless|async|await|launch|defer|asm|unsafe|inline|noreturn)\\b"
                 },
                 {
                     "name": "keyword.other.zenc",
@@ -118,7 +118,7 @@
             "patterns": [
                 {
                     "name": "storage.type.zenc",
-                    "match": "\\b(int|uint|char|bool|void|u8|u16|u32|u64|u128|U8|U16|U32|U64|U128|i8|i16|i32|i64|i128|I8|I16|I32|I64|I128|f32|f64|F32|F64|usize|isize|string|c_int|c_uint|c_char|c_uchar|c_short|c_ushort|c_long|c_ulong|byte|rune|va_list)\\b"
+                    "match": "\\b(int|uint|char|bool|void|u8|u16|u32|u64|u128|U8|U16|U32|U64|U128|i8|i16|i32|i64|i128|I8|I16|I32|I64|I128|f32|f64|F32|F64|usize|isize|string|c_int|c_uint|c_char|c_uchar|c_short|c_ushort|c_long|c_ulong|c_longlong|c_ulonglong|byte|rune|u0|U0|va_list)\\b"
                 }
             ]
         },
